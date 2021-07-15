@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Quadrado de Pearson</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<div class="container mx-auto flex flex-col m-0">
+    <div id="header" class="mx-auto m-0">
+        <h1 class="font-sans text-5xl mx-auto my-10">Calculadora - Quadrado de Pearson</h1>        
+    </div>
+    <div id="helper" class="mx-auto m-0 max-w-prose text-justify text-lg">Preencha as caixas verdes com os dados necessários. Apenas dois ingredientes podem ser utilizados. Se você pretende utilizar três ou mais, deve realizar as misturas antes, e obter suas concentrações separadamente. <b>Em breve colocarei mais calculadoras e informações.</b></div>
+        <div id="calc" class="m-10 border-black border-2 p-4 rounded-lg bg-gray-200 shadow-lg flex flex-col  w-6/12 self-center bg-calc bg-cover">
+            <div class="grid gap-4 auto-cols-max text-center mx-auto grid-cols-3 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80 bg-white rounded-xl p-2 border border-gray-200">
+                <div class="rounded-xl shadow-lg bg-green-100 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do primeiro ingrediente <input id="ing1-conc" type="number" placeholder="50" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2 " onchange="CalcularPearson()"></div>
+                <div class=""></div>
+                <div class="rounded-xl bg-red-200 text-sm font-semibold shadow-lg bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do primeiro ingrediente<br><span id="partes1" class="text-3xl text-red-600"></span></div>
+                <div></div>
+                <div class="rounded-xl shadow-lg bg-white text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">% desejada (NDT ou PB)<input id="conc-desejada" type="number" placeholder="50.00" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()"></div>
+                <div></div>
+                <div class="rounded-xl shadow-lg bg-green-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do segundo ingrediente <input id="ing2-conc" type="number" placeholder="50" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()"></div>
+                <div></div>
+                <div class="rounded-xl shadow-lg bg-red-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do segundo ingrediente<br><span id="partes2" class="text-3xl text-red-600"></span></div>
+            </div>
+         <div id="res-final" class="bg-green-100 my-10 p-4 text-lg bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 border border-gray-200 rounded-xl">
+             Porcentagem do 1o  ingrediente: <span size="4" id="ing1-total"></span><br>
+             Porcentagem do 2o ingrediente: <span size="4" id="ing2-total"></span>
+         </div>
+           
+
+        </div>
+            </div>
+    </div>
+</div>
+    
+</body>
+</html>
