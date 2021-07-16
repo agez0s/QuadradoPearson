@@ -629,6 +629,10 @@ select {
   }
 }
 
+.left-px {
+  left: 1px;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -646,8 +650,17 @@ select {
   margin-right: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .my-10 {
   margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mb-10 {
   margin-bottom: 2.5rem;
 }
 
@@ -671,8 +684,16 @@ select {
   width: 50%;
 }
 
+.w-10\/12 {
+  width: 83.333333%;
+}
+
 .max-w-prose {
   max-width: 65ch;
+}
+
+.table-auto {
+  table-layout: auto;
 }
 
 @-webkit-keyframes spin {
@@ -754,6 +775,10 @@ select {
   flex-direction: column;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -807,6 +832,11 @@ select {
   background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 }
 
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(254, 243, 199, var(--tw-bg-opacity));
+}
+
 .bg-green-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
@@ -842,13 +872,13 @@ select {
   background-image: url('/fundo.jpg');
 }
 
-.from-green-700 {
-  --tw-gradient-from: #047857;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(4, 120, 87, 0));
+.from-green-400 {
+  --tw-gradient-from: #34d399;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(52, 211, 153, 0));
 }
 
-.via-gray-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #d1d5db, var(--tw-gradient-to, rgba(209, 213, 219, 0));
+.via-gray-100 {
+  --tw-gradient-stops: var(--tw-gradient-from), #f3f4f6, var(--tw-gradient-to, rgba(243, 244, 246, 0));
 }
 
 .to-white {
@@ -865,6 +895,10 @@ select {
 
 .p-0 {
   padding: 0px;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-2 {
@@ -916,6 +950,10 @@ select {
   color: rgba(220, 38, 38, var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 *, ::before, ::after {
   --tw-shadow: 0 0 #0000;
 }
@@ -965,6 +1003,9 @@ select {
 }
 
 @media (min-width: 768px) {
+  .md\:w-6\/12 {
+    width: 50%;
+  }
 }
 
 @media (min-width: 1024px) {

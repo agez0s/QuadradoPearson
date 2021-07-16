@@ -8,34 +8,77 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
-<body class="bg-gradient-to-t from-green-700 via-gray-300 to-white">
+<body class="bg-gradient-to-t from-green-400 via-gray-100 to-white">
 <div class="container mx-auto flex flex-col m-0">
     <div id="header" class="mx-auto m-0">
         <h1 class="font-sans text-5xl mx-auto my-10">Calculadora - Quadrado de Pearson</h1>        
     </div>
-    <div id="helper" class="mx-auto m-0 max-w-prose text-justify text-lg">Preencha as caixas verdes com os dados necessários. Apenas dois ingredientes podem ser utilizados. Se você pretende utilizar três ou mais, deve realizar as misturas antes, e obter suas concentrações separadamente. <b>Em breve colocarei mais calculadoras e informações.</b></div>
-        <div id="calc" class="m-10 border-black border-2 p-4 rounded-lg bg-gray-200 shadow-lg flex flex-col  w-6/12 self-center bg-calc bg-cover">
-            <div class="grid gap-4 auto-cols-max text-center mx-auto grid-cols-3 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80 bg-white rounded-xl p-2 border border-gray-200">
-                <div class="rounded-xl shadow-lg bg-green-100 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do primeiro ingrediente <input id="ing1-conc" type="number" placeholder="50" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2 " onchange="CalcularPearson()"></div>
-                <div class=""></div>
-                <div class="rounded-xl bg-red-200 text-sm font-semibold shadow-lg bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do primeiro ingrediente<br><span id="partes1" class="text-3xl text-red-600"></span></div>
-                <div></div>
-                <div class="rounded-xl shadow-lg bg-white text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">% desejada (NDT ou PB)<input id="conc-desejada" type="number" placeholder="50.00" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()"></div>
-                <div></div>
-                <div class="rounded-xl shadow-lg bg-green-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do segundo ingrediente <input id="ing2-conc" type="number" placeholder="50" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()"></div>
-                <div></div>
-                <div class="rounded-xl shadow-lg bg-red-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do segundo ingrediente<br><span id="partes2" class="text-3xl text-red-600"></span></div>
-            </div>
-         <div id="res-final" class="bg-green-100 my-10 p-4 text-lg bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 border border-gray-200 rounded-xl">
-             Porcentagem do 1º ingrediente: <span size="4" id="ing1-total"></span><br>
-             Porcentagem do 2º ingrediente: <span size="4" id="ing2-total"></span>
-         </div>
-           
-
+    <div id="helper" class="mx-auto m-0 max-w-prose text-justify text-lg">
+        Preencha as caixas verdes com os dados necessários. Apenas dois ingredientes podem ser utilizados.
+        Se você pretende utilizar três ou mais, <a class="underline" href=#faqtexto>deve realizar as misturas antes</a>, e obter suas concentrações separadamente.
+        Opcionalmente, você pode determinar um valor total da mistura, e a calculadora irá fornecer a quantidade necessária de cada ingrediente de modo a manter os teores obtidos.
+        O valor inicial é de "1000", que pode significar gramas, quilogramas, litros, ou qualquer outra medida que você pretenda utilizar.
+    </div>
+    <div id="calc" class="md:w-6/12 m-10 border-black border-2 p-4 rounded-lg bg-gray-200 shadow-lg flex flex-col  self-center bg-calc bg-cover">
+        <div class="grid gap-4 auto-cols-max text-center mx-auto grid-cols-3 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80 bg-white rounded-xl p-2 border border-gray-200">
+            <div class="rounded-xl shadow-lg bg-green-100 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do primeiro ingrediente <input id="ing1-conc" type="number" value="45" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2 " onchange="CalcularPearson()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div>
+            <div class=""></div>
+            <div class="rounded-xl shadow-lg bg-red-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do primeiro ingrediente<br><span id="partes1" class="text-3xl text-red-600">0</span></div>
+            <div></div>
+            <div class="rounded-xl shadow-lg bg-white text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">% desejada (NDT ou PB)<input id="conc-desejada" type="number" value="18" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');""></div>
+            <div></div>
+            <div class="rounded-xl shadow-lg bg-green-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">%NDT/PB do segundo ingrediente <input id="ing2-conc" type="number" value="13" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="CalcularPearson()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');""></div>
+            <div class="rounded-xl shadow-lg bg-yellow-100 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200"">Qtd. total mistura (opc.)<input id="qtdmix" type="number" value="1000" class="rounded shadow-sm bg-green-50 w-32 text-center p-0 m-2" onchange="calculaMix()" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></div>
+            <div class="rounded-xl shadow-lg bg-red-200 text-sm font-semibold bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">Partes do segundo ingrediente<br><span id="partes2" class="text-3xl text-red-600">0</span></div>
         </div>
+        <div id="res-final" class="bg-green-100 my-10 p-4 text-lg bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 border border-gray-200 rounded-xl flex">
+            <div id="partesfinal" class="left-px w-6/12">Porcentagem do 1º ingrediente: <span id="ing1-total"></span><br>
+             Porcentagem do 2º ingrediente: <span id="ing2-total"></span>
             </div>
+            <div id="lastmsg" class="w-6/12 justify-end"></div>
+        </div>
+    </div>
+    <div id="faq" class="mx-auto m-0">
+        <h1 class="font-sans text-5xl mx-auto my-10">Perguntas frequentes</h1>
+    </div>
+    <div id="faqtexto" class="mx-auto m-0 p-4 mb-10 max-w-prose text-lg text-justify rounded-xl shadow-lg bg-yellow-100 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-70 border border-gray-200">
+      <b>Como faço para utilizar três ingredientes?</b><br>
+      O Quadrado de Pearson possui a limitação de só poder utilizar dois ingredientes diferentes. Se você pretende utilizar mais de dois, deve <b>fazer uma ou mais misturas.</b> Exemplo para se utilizar três ingredientes (dados fictícios):<br><br>      
+      <table class="table-auto self-center w-10/12 mx-auto">
+          <thead>
+              <tr class="bg-green-200">
+                  <th class="p-2">Ingrediente</th>
+                  <th class="text-center">Proteína Bruta (%)</th>
+                  <th class="text-center">NDT (%)</th>
+              </tr>              
+          </thead>
+          <tbody>
+              <tr class="bg-green-50">
+                  <td class="p-1">Farelo de Milho (FM)</td>
+                  <td class="text-center">13</td>
+                  <td class="text-center">80</td>
+              </tr>
+              <tr class="bg-green-100">    
+                <td class="p-1">Farelo de Soja (FS)</td>
+                <td class="text-center">45</td>
+                <td class="text-center">70</td>
+              </tr>
+              <tr class="bg-green-50">
+                  <Td class="p-1">Farelo de Trigo (FT)</Td>
+                  <td class="text-center">25</td>
+                  <td class="text-center">70</td>
+              </tr>
+          </tbody>
+      </table>
+    <br>Neste exemplo, faremos uma pré-mistura entre o FS e o FT, realizando uma média aritmética entre suas concentrações, obtendo-se assim uma mistura com <b>%PB = 35 e %NDT = 70,</b> e colocamos esses dados na <a href="#calc" class="underline">calculadora</a> como o primeiro ingrediente, e o ingrediente restante (Farelo de milho) como segundo.
+    Esse é apenas um exemplo. Existem <a class="underline" href="https://dspace.uevora.pt/rdpc/handle/10174/13519" target=_blank>várias formas de se utilizar o Quadrado de Pearson</a> para formular rações com três ou mais ingredientes.
+    <br><br><b>Quais outras aplicações tem o Quadrado de Pearson?</b><br>
+    Além de ser bastante utilizado na formulação de rações para animais, este método pode ser utilizado na <a class="underline" target=_blank href="https://www.revistadoilct.com.br/rilct/article/view/250">produção de leite condensado</a>, <a class="underline" target=_blank href="https://www.alice.cnptia.embrapa.br/handle/doc/159653">ajuste de salinidade da água</a>, <a class="underline" target=_blank href="http://www.abq.org.br/cbq/2013/trabalhos/10/3352-7008.html">padronização de leite</a>, e também vem sendo utilizado na <a class="underline" target=_blank href="http://www.abq.org.br/cbq/2013/trabalhos/10/3352-7008.html">indústria vinícola</a>.
+      
     </div>
 </div>
+ 
+
     
 </body>
 </html>
