@@ -440,6 +440,8 @@ table {
   border-collapse: collapse;
 }
 
+
+
 h1,
 h2,
 h3,
@@ -629,6 +631,10 @@ select {
   }
 }
 
+.fixed {
+  position: fixed;
+}
+
 .left-px {
   left: 1px;
 }
@@ -650,11 +656,6 @@ select {
   margin-right: auto;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -668,12 +669,20 @@ select {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .table {
   display: table;
 }
 
 .grid {
   display: grid;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-32 {
@@ -688,12 +697,27 @@ select {
   width: 83.333333%;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .max-w-prose {
   max-width: 65ch;
 }
 
 .table-auto {
   table-layout: auto;
+}
+
+.transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 @-webkit-keyframes spin {
@@ -775,8 +799,16 @@ select {
   flex-direction: column;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .justify-end {
   justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .gap-4 {
@@ -893,6 +925,9 @@ select {
   background-clip: padding-box;
 }
 
+.items-center {
+  align-items: center;
+}
 .p-0 {
   padding: 0px;
 }
@@ -915,6 +950,10 @@ select {
 
 .text-justify {
   text-align: justify;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .font-sans {

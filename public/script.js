@@ -41,3 +41,9 @@ function calculaMix() {
 
     document.getElementById("lastmsg").innerHTML = "Quantidade 1º ingrediente: " + qtdmix1.toString().replace(".", ",") + "<br>Quantidade 2º ingrediente: " + qtdmix2.toString().replace(".", ",");
 }
+
+window.addEventListener('load', () => {
+    const preload = document.querySelector('#preloader');
+    preload.classList.add('hidden');
+    preload.classList.remove('flex');
+})
