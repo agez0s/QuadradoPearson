@@ -2,20 +2,18 @@ var ing1total;
 var ing2total;
 
 function CalcularPearson() {
-    let ing1;
-    let ing2;
-    let conc;
-    ing1  = document.getElementById("ing1-conc").value;
-    ing2 = document.getElementById("ing2-conc").value;
-    conc = document.getElementById("conc-desejada").value;
+    let ing1 = document.getElementById("ing1-conc").value;
+    let ing2 = document.getElementById("ing2-conc").value;
+    let conc = document.getElementById("conc-desejada").value;
 
+    ing1 = parseFloat(ing1)
+    ing2 = parseFloat(ing2)
+    conc = parseFloat(conc)
     if (ing1 > conc && ing2 > conc) { retornaErro("Os dois ingredientes não podem ter maior concentração do que a desejada"); return }
     if (ing1 < conc && ing2 < conc) { retornaErro("Os dois ingredientes não podem ter menor concentração do que a desejada"); return }
     
-    let ing1partes;
-    let ing2partes;
-    ing1partes = Math.abs(conc - ing2);
-    ing2partes = Math.abs(conc - ing1);
+    let ing1partes = Math.abs(conc - ing2);
+    let ing2partes = Math.abs(conc - ing1);
     document.getElementById("partes1").innerHTML = ing1partes;
     document.getElementById("partes2").innerHTML = ing2partes;
 
